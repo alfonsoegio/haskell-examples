@@ -1,5 +1,6 @@
 -- :set +m
 import Data.Time
+import Data.Bifunctor
 
 fib 0 = 0
 fib 1 = 1
@@ -123,3 +124,31 @@ zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
 
 largestDivisible :: (Integral a) => a -> a
 largestDivisible y = head (filter (\x -> x `mod` y == 0) [100000,99999..])
+
+data Person = Person { firstName :: String,
+                       lastName :: String,
+                       age :: Int } deriving (Show)
+
+ijones = Person {firstName="Indiana", lastName="Jones", age=189}
+
+data Day = Lunes | Martes | Miércoles | Jueves | Viernes | Sábado | Domingo
+  deriving (Eq, Ord, Show, Read, Bounded, Enum)
+
+inputOutput = do
+  print "What's your name?"
+  name <- getLine
+  print $ "Hello " ++ name
+
+inputOutput' = do
+  print "What's your name?"
+  name <- getLine
+  print ("Hello " ++ name)
+
+inputOutput'' = do
+  print "What's your name?"
+  name <- getLine
+  print ((++) "Hello " name)
+
+reverseGetLine = do
+  line <- fmap reverse getLine
+  print line
