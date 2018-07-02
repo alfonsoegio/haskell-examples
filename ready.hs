@@ -2,21 +2,22 @@
 import Data.Time
 import Data.Bifunctor
 
+
 fib 0 = 0
 fib 1 = 1
 fib n = fib (n-1) + fib (n-2)
 
 
 -- | Hypothenusa
+
 doubleUs :: Num a => a -> a -> a
 doubleUs x y = x*2 + y*2
-
-
 
 
 -- We also note that Num is a subclass of Eq, but not of Ord;
 -- this is because the order predicates do not apply to complex numbers.
 -- The subclass Real of Num, however, is a subclass of Ord as well.
+
 conditional :: Real a => a -> a
 conditional x = if x > 100
                 then x
@@ -24,26 +25,32 @@ conditional x = if x > 100
 
 -- conditional2 :: (Ord a, Num a) => a -> [Char]
 -- :t conditional2
+
 conditional2 x = if x > 100
                 then "Over 100"
                 else "Under 100"
 
 
 conanO'Brien = "Hello world!"
--- :t conanO'Brien
 
 
 -- reverse own implementation
+
+
 reverse' :: [a] -> [a]
 reverse' [] = []
 reverse' a = last a : reverse' (init a)
-
 
 -- Patterns
 sorted :: (Ord a) => [a] -> Bool
 sorted [] = True
 sorted [x] = True
 sorted (x:y:xs) = if x <= y then sorted (y:xs) else False
+
+
+map' :: (a -> b) -> [a] -> [b]
+map' _ [] = []
+map' f (x:xs) = f x : map' f xs
 
 
 -- Math language ( where )
@@ -104,6 +111,11 @@ max' a b
     | otherwise = b
 
 
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' _ [] = []
+filter' f (x:xs)
+  | f x       = x : (filter' f xs)
+  | otherwise = filter' f xs
 
 cylinder :: (RealFloat a) => a -> a -> a
 cylinder r h =
@@ -124,6 +136,8 @@ zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
 
 largestDivisible :: (Integral a) => a -> a
 largestDivisible y = head (filter (\x -> x `mod` y == 0) [100000,99999..])
+
+
 
 data Person = Person { firstName :: String,
                        lastName :: String,
