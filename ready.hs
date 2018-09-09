@@ -10,7 +10,7 @@ fib n = fib (n-1) + fib (n-2)
 
 -- | Hypothenusa
 
-doubleUs :: Num a => a -> a -> a
+doubleUs :: (Num a) => a -> a -> a
 doubleUs x y = x*2 + y*2
 
 
@@ -148,6 +148,11 @@ ijones = Person {firstName="Indiana", lastName="Jones", age=189}
 data Day = Lunes | Martes | Miércoles | Jueves | Viernes | Sábado | Domingo
   deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
+maybeExample :: (Real a) => a -> Maybe a
+maybeExample x = if x > 3
+                 then Just 3
+                 else Nothing
+
 inputOutput = do
   print "What's your name?"
   name <- getLine
@@ -166,3 +171,7 @@ inputOutput'' = do
 reverseGetLine = do
   line <- fmap reverse getLine
   print line
+
+half x = if even x
+  then Just (x `div` 2)
+  else Nothing

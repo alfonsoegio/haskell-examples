@@ -1,0 +1,100 @@
+:l ready.hs 
+:t fib
+fib 20
+fib 34
+fib 3
+fib 2 
+:t fib
+:l ready.hs 
+map' length ["asdj", "LAKSDJLSKAJ"]
+:t length
+map length ["Hello", "World"]
+map (* 2) [1,2,3]
+reverse [1,2,3]
+:t conditional2
+:t conditional
+:t doubleUs
+:doubleUs
+fib 20
+fib 9
+fib 6
+fib 5
+fib 4
+fib 3
+fib 2
+fib 1
+fib 0
+fib -1
+:t fib
+:l ready
+:l ready
+:t doubleUs 2
+:l ready.hs 
+fst $ reprocess "laksjd alsdkj aslkdj aslkdj "
+:t upCase 
+:t T.toUpper 
+:l kleisli.hs 
+snd $ reprocess "laksjd alsdkj aslkdj aslkdj "
+fst $ reprocess "laksjd alsdkj aslkdj aslkdj "
+snd $ process "ABC Def"
+fst $ process "ABC Def"
+process "ABC Def"
+process "ABC DEF"
+reprocess "laksjd alsdkj aslkdj aslkdj "
+:l kleisli.hs 
+:t getLine 
+:t reverseGetLine 
+reverseGetLine 
+:l ready.hs 
+:l ready.hs 
+:l ready.hs 
+inputOutput'' 
+inputOutput'
+:l ready.hs 
+inputOutput 
+:l ready.hs 
+inputOutput 
+:l ready.hs 
+inputOutput 
+:l ready.hs 
+:l ready.hs 
+:l ready.hs 
+:l ready.hs 
+[Lunes .. Miércoles]
+[Lunes..Miércoles]
+:l ready.hs 
+:t Day 
+Lunes > Viernes 
+Domingo > Lunes 
+Sábado > Viernes 
+show Lunes
+Lunes 
+:t Day 
+:l ready.hs 
+age ijones 
+:l ready.hs 
+age hola
+firstName hola
+hola
+hola = Person {firstName="Alfonso", lastName="Egio", age=42}
+:t firstName 
+:l ready.hs 
+intersperse '-' "lkajdslkasjd"
+intersperse "-" "laksdjlaskjd"
+import Data.List
+:t greet 
+greet ("Poland", "switzerland")
+greet (Right "Julie")
+greet (Left "Julie")
+greet = bimap ("hello" ++) ("goodbye" ++)
+import Data.Bifunctor 
+:l ready.hs 
+:l ready.hs 
+:l ready.hs 
+:l ready.hs 
+greet = bimap ( "hello" ++) ("goodbye" ++)
+greet = bimap ( "hello" ++) ("goodbye" ++)
+Monad Int [Char]
+:k Monad
+:kind Either
+:kind Maybe
