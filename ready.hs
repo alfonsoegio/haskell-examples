@@ -18,7 +18,7 @@ doubleUs x y = x*2 + y*2
 -- this is because the order predicates do not apply to complex numbers.
 -- The subclass Real of Num, however, is a subclass of Ord as well.
 
-conditional :: Real a => a -> a
+conditional :: (Num a, Ord a) => a -> a
 conditional x = if x > 100
                 then x
                 else x*2
@@ -42,7 +42,7 @@ reverse' [] = []
 reverse' a = last a : reverse' (init a)
 
 -- Patterns
-sorted :: (Ord a) => [a] -> Bool
+-- sorted :: (Ord a) => [a] -> Bool
 sorted [] = True
 sorted [x] = True
 sorted (x:y:xs) = if x <= y then sorted (y:xs) else False
@@ -89,9 +89,9 @@ benchmark f = do
   print(diffUTCTime end start)
 
 
-triangles = [ (a,b,c) | c <- [1..10], b <- [1..10], a <- [1..10]]
+triangles = [(a,b,c) | c <- [1..10], b <- [1..10], a <- [1..10]]
 
-rightTriangles = [ (a,b,c) | c <- [1..10], b <- [1..10], a <- [1..10], a^2 + b^2 == c^2]
+rightTriangles = [(a,b,c) | c <- [1..10], b <- [1..10], a <- [1..10], a^2 + b^2 == c^2]
 
 
 factorial :: Integer -> Integer
@@ -175,3 +175,18 @@ reverseGetLine = do
 half x = if even x
   then Just (x `div` 2)
   else Nothing
+
+factorial' n = product [1..n]
+
+
+data Tree a = Leaf a | Branch a (Tree a) (Tree a)
+
+treeMap :: (a -> b) -> Tree a -> Tree b
+treeMap f (Leaf a) = Leaf (f a)
+treeMap f (Branch a left right) =
+  Branch (f a) (treeMap f left) (treeMap f right)
+
+
+iofunction :: IO ()
+iofunction = do
+  getLine >>= readFile >>= putStr
